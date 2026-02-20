@@ -1,0 +1,316 @@
+basePath: /api
+definitions:
+  models.Category:
+    type: object
+  models.Checkin:
+    type: object
+  models.Competition:
+    properties:
+      date:
+        type: string
+      entry_fee: {}
+      id:
+        type: integer
+      location: {}
+      name:
+        type: string
+      numberOfEntries:
+        type: integer
+      published:
+        type: boolean
+      status:
+        type: string
+      time:
+        type: string
+    type: object
+  models.CompetitionAthlete:
+    type: object
+  models.Event:
+    type: object
+host: localhost:3000
+info:
+  contact: {}
+  description: Documentation for all the apis
+  title: APIs
+  version: "0.1"
+paths:
+  /v1/competition:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Competition'
+      summary: List Competition
+      tags:
+      - Competitions
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Competition to create
+        in: body
+        name: competition
+        required: true
+        schema:
+          $ref: '#/definitions/models.Competition'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Competition'
+      summary: Create a Competition
+      tags:
+      - Competitions
+  /v1/competition/{competitionId}:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Competition'
+      summary: Get a Competition
+      tags:
+      - Competitions
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Competition to update
+        in: body
+        name: competition
+        required: true
+        schema:
+          $ref: '#/definitions/models.Competition'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Competition'
+      summary: Update a Competition
+      tags:
+      - Competitions
+  /v1/competition/{competitionId}/athlete:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Athlete to add
+        in: body
+        name: athlete
+        required: true
+        schema:
+          $ref: '#/definitions/models.CompetitionAthlete'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CompetitionAthlete'
+      summary: Add an Athlete to a Competition
+      tags:
+      - Competitions
+  /v1/competition/{competitionId}/athlete/{athleteId}:
+    delete:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: Accepted
+      summary: Delete an Athlete from a Competition
+      tags:
+      - Competitions
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Athlete to update
+        in: body
+        name: athlete
+        required: true
+        schema:
+          $ref: '#/definitions/models.CompetitionAthlete'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CompetitionAthlete'
+      summary: Update an Athlete in a Competition
+      tags:
+      - Competitions
+  /v1/competition/{competitionId}/category:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Category to add
+        in: body
+        name: category
+        required: true
+        schema:
+          $ref: '#/definitions/models.Category'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Category'
+      summary: Add a Category to a Competition
+      tags:
+      - Competitions
+  /v1/competition/{competitionId}/category/{categoryId}:
+    delete:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: Accepted
+      summary: Update a Category in a Competition
+      tags:
+      - Competitions
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Category to update
+        in: body
+        name: category
+        required: true
+        schema:
+          $ref: '#/definitions/models.Category'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Category'
+      summary: Update a Category in a Competition
+      tags:
+      - Competitions
+  /v1/competition/{competitionId}/checkin:
+    delete:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: Accepted
+      summary: Delete the checkin for a Competition
+      tags:
+      - Competitions
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Checkin requirements for the competition
+        in: body
+        name: checkin
+        required: true
+        schema:
+          $ref: '#/definitions/models.Checkin'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Checkin'
+      summary: Add Checkin Requirements to a Competition
+      tags:
+      - Competitions
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Updated checkin requirements for the competition
+        in: body
+        name: checkin
+        required: true
+        schema:
+          $ref: '#/definitions/models.Checkin'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Checkin'
+      summary: Update Checkin Requirements for a Competition
+      tags:
+      - Competitions
+  /v1/competition/{competitionId}/event:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Event to add
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/models.Event'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Event'
+      summary: Add an Event to a Competition
+      tags:
+      - Competitions
+  /v1/competition/{competitionId}/event/{eventId}:
+    delete:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: Accepted
+      summary: Delete an Event from a Competition
+      tags:
+      - Competitions
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Event to update
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/models.Event'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Event'
+      summary: Update an Event in a Competition
+      tags:
+      - Competitions
+swagger: "2.0"
