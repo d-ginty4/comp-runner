@@ -2,7 +2,6 @@ package routes
 
 import (
 	_ "apis/docs"
-	_ "apis/models"
 	"github.com/labstack/echo/v5"
 	echoSwagger "github.com/swaggo/echo-swagger"
 )
@@ -15,7 +14,6 @@ import (
 func Routes(e *echo.Echo) {
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
 
-	e.Group("/api/v0.1")
+	base := e.Group("/api/v0.1")
+	registerCompetitionRoutes(base)
 }
-
-// @Router /v1/competition [post]

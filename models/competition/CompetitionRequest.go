@@ -1,4 +1,4 @@
-package models
+package competition
 
 type CompetitionRequest struct {
 	Id              int         `json:"id"`

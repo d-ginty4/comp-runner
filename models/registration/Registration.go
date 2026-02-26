@@ -1,6 +1,6 @@
-package models
+package registration
 
-type Event struct {
+type CompetitionAthlete struct {
 	Id            int `json:"id"`
 	CompetitionId int `json:"competitionId"`
 }
