@@ -1,9 +1,9 @@
 package models
 
-type Competition struct {
+type CompetitionRequest struct {
 	Id              int         `json:"id"`
 	Name            string      `json:"name"`
-	EntryFee        interface{} `json:"entry_fee"`
+	EntryFee        interface{} `json:"entryFee"`
 	Location        interface{} `json:"location"`
 	NumberOfEntries int         `json:"numberOfEntries"`
 	Date            string      `json:"date"`

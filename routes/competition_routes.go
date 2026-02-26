@@ -4,7 +4,7 @@ package routes
 // @Tags Competitions
 // @Accept json
 // @Produce json
-// @Success 200 {object} models.Competition
+// @Success 200 {object} models.competitions.Competition
 // @Router /v1/competition [get]
 func listCompetitions() {
 
@@ -14,8 +14,8 @@ func listCompetitions() {
 // @Tags Competitions
 // @Accept json
 // @Produce json
-// @Success 200 {object} models.Competition
-// @Param competition body models.Competition true "Competition to create"
+// @Success 200 {object} models.competitions.Competition
+// @Param competition body models.competitions.CompetitionRequest true "Competition to create"
 // @Router /v1/competition [post]
 func createCompetition() {
 
@@ -25,7 +25,7 @@ func createCompetition() {
 // @Tags Competitions
 // @Accept json
 // @Produce json
-// @Success 200 {object} models.Competition
+// @Success 200 {object} models.competitions.Competition
 // @Router /v1/competition/{competitionId} [get]
 func getCompetition() {
 
@@ -35,8 +35,8 @@ func getCompetition() {
 // @Tags Competitions
 // @Accept json
 // @Produce json
-// @Success 200 {object} models.Competition
-// @Param competition body models.Competition true "Competition to update"
+// @Success 200 {object} models.competitions.Competition
+// @Param competition body models.competitions.Competition true "Competition to update"
 // @Router /v1/competition/{competitionId} [put]
 func updateCompetition() {
 

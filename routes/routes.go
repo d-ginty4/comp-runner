@@ -15,7 +15,7 @@ import (
 func Routes(e *echo.Echo) {
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
 
-	g := e.Group("/api/v0.1")
+	e.Group("/api/v0.1")
 }
 
 // @Router /v1/competition [post]

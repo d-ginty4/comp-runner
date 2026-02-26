@@ -15,7 +15,7 @@ func main() {
 	routes.Routes(e)
 
 	// Start server
-	if err := e.Start(":8080"); err != nil {
+	if err := e.Start(":3000"); err != nil {
 		log.Fatal(err)
 	}
 }
